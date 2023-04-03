@@ -2,15 +2,43 @@
     const cardContainer = document.getElementById("cardContainer");
     const checkContainer = document.getElementById("checkContainer");
     const input = document.querySelector("input");
-    let actualDate = data.currentDate
+   
 
     //llamadas de funciones y eventos
-
-    createCard(data.events);
-    createCheckbox(data.events);
+    getData()
     // funciones
+    function getData() {
+        const url = "https://mindhub-xj03.onrender.com/api/amazing";
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            
+            createCard(data.events, data.currentDate);
+            
+            createCheckbox(data.events, data.currentDate);
+            console.log(data.events);
+            
+            input.addEventListener("input",(e)=>{
+              e.preventDefault();
+        
+              let oneFilter = textFilter(data.events, input.value);
+              let twoFilter = filterCategory(oneFilter);
+              createCard(twoFilter, data.currentDate);
+            })
+        
+            checkContainer.addEventListener("change",(e)=>{
+              let oneFilter = textFilter(data.events, input.value)
+              let twoFilter = filterCategory(oneFilter)
+              createCard(twoFilter, data.currentDate);
+            })
+            console.log(data.events)
 
-    function createCard(array){
+          });
+      }
+      
+
+    function createCard(array, date){
+        let actualDate = date
         if(array.length == 0){
             cardContainer.innerHTML =` 
             <div class="alert alert-light" role="alert">
@@ -20,7 +48,7 @@
              
             let card = ``;
             array.forEach(element => {
-                if(actualDate < element.date){
+                if(actualDate > element.date){
                     card += `
                     <div class="card align-items-center">
                     <img src="${element.image}" alt="Imagen de "${element.image}" class="card-img">
@@ -39,19 +67,29 @@
         }
     }
 
-    function createCheckbox(array) {
-        let arrayCategory = array.map(element=>{
-            return element.category
+    function createCheckbox(array, date) {
+        let actualDate = date
+
+        let arrayCategory = []
+
+        array.map(element=>{
+                if(actualDate > element.date){
+                    arrayCategory.push(element.category) 
+                }
+                return arrayCategory
+            
         })
 
+        
         //set es una estructura de javascript que no permite elementos repetidos. siempre y cuando sea de elementos basico.
         let setCategory = new Set(arrayCategory)
         console.log(setCategory); //el set tiene foreach lo que permite recorrer.
         let chech = ""
         setCategory.forEach(element=>{
+
             chech +=`
             <div class="">
-                <input class="form-check-input" type="checkbox" value="${element}" id="flexCheckDefault">
+                <input class="form-check-input" type="checkbox" value="${element}" id="${element}">
                 <label class="form-check-label" for="${element}">
                 ${element}
                 </label>
@@ -59,25 +97,6 @@
             checkContainer.innerHTML = chech
         })
     }
-
-    input.addEventListener("input",(e)=>{
-        // Evitar que la página se recargue
-        e.preventDefault();
-
-        // Tu código de filtrado y creación de tarjetas aquí
-        let oneFilter = textFilter(data.events, input.value);
-        let twoFilter = filterCategory(oneFilter);
-        createCard(twoFilter);
-    })
-
-    checkContainer.addEventListener("change",()=>{
-        // dentro del contenedor algo esta cambiando - un change
-        let oneFilter = textFilter(data.events, input.value)
-        let twoFilter = filterCategory(oneFilter)
-        createCard(twoFilter);
-        
-    })
-
 
 
     function textFilter(array, text) {
