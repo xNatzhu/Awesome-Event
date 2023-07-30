@@ -55,7 +55,7 @@
                         <h5 class="card-title text-center">${element.name}</h5>
                         <p class="card-text text-center mt-2">${element.description}.</p>
                         <div class="row row-cols-2 card-body-button-price">
-                            <div class="mt-3">$ ${element.price}</div>
+                            <div class="mt-3 card-price">$ ${element.price}</div>
                             <a href="detail.html?id=${element._id}" class="btn btn-primary-aevento">Details</a>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
         setCategory.forEach(element=>{
 
             chech +=`
-            <div class="">
+            <div class="form-check-body">
                 <input class="form-check-input" type="checkbox" value="${element}" id="${element}">
                 <label class="form-check-label" for="${element}">
                 ${element}
