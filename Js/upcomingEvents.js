@@ -88,7 +88,7 @@
         setCategory.forEach(element=>{
 
             chech +=`
-            <div class="">
+            <div class="form-check-body mt-3">
                 <input class="form-check-input" type="checkbox" value="${element}" id="${element}">
                 <label class="form-check-label" for="${element}">
                 ${element}
