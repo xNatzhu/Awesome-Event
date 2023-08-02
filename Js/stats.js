@@ -180,16 +180,16 @@ function EventStatistics(data) {
   let eventStat = `
   <thead class="table-dark">
           <tr>
-            <th class="pt-3 pb-3 ps-1">Events with the highest percentage of attendance</th>
-            <th class="pt-3 pb-3 ps-1">Events with the lowest percentage of attendance</th>
-            <th class="pt-3 pb-3 ps-1">Event with larger capacity</th>
+            <th class="pt-3 pb-3 ">Events with the highest percentage of attendance</th>
+            <th class="pt-3 pb-3 ">Events with the lowest percentage of attendance</th>
+            <th class="pt-3 pb-3 ">Event with larger capacity</th>
           </tr>
   </thead>
   <tbody>
       <tr>
-      <td class="pt-3 pb-3 ps-1">${data.mayorPorcentajeDeAsistencia.mejorEvento.name} ${data.mayorPorcentajeDeAsistencia.mejorPorcentajeDeAsistencia}%</td>
-      <td class="pt-3 pb-3 ps-1">${data.menorPorcentajeDeAsistencia.menorEvento.name} ${data.menorPorcentajeDeAsistencia.menorPorcentajeDeAsistencia}%</td>
-      <td class="pt-3 pb-3 ps-1">${data.mayorCapacidad.mayorCapacidadEvento.name} Capacity: ${data.mayorCapacidad.mayorCapacidad}</td>
+      <td class="pt-3 pb-3 ">${data.mayorPorcentajeDeAsistencia.mejorEvento.name} ${data.mayorPorcentajeDeAsistencia.mejorPorcentajeDeAsistencia}%</td>
+      <td class="pt-3 pb-3 ">${data.menorPorcentajeDeAsistencia.menorEvento.name} ${data.menorPorcentajeDeAsistencia.menorPorcentajeDeAsistencia}%</td>
+      <td class="pt-3 pb-3 ">${data.mayorCapacidad.mayorCapacidadEvento.name} Capacity: ${data.mayorCapacidad.mayorCapacidad}</td>
       </tr>
   </tbody>`;
 
@@ -199,21 +199,22 @@ function EventStatistics(data) {
 
 function EventStatisticsUpcoming(data, percentages) {
   let eventStat = `
+  <br>
     <thead class="table-dark">
-      <tr><th class="pt-3 pb-3 ps-1" colspan="3">Upcoming Event</th></tr>
+      <tr><th class="pt-3 pb-3 " colspan="3"><span>Upcoming Event</span></th></tr>
       <tr>
-        <th class="pt-3 pb-3 ps-1">Categories</th>
-        <th class="pt-3 pb-3 ps-1">Revenues</th>
-        <th class="pt-3 pb-3 ps-1">Percentage of attendance</th>
+        <th class="pt-3 pb-3 ">Categories</th>
+        <th class="pt-3 pb-3 ">Revenues</th>
+        <th class="pt-3 pb-3 ">Percentage of attendance</th>
       </tr>
     </thead>`
   for (const [category, value] of Object.entries(data)) {
     eventStat += `
       <tbody>
         <tr>
-          <td class="pt-3 pb-3 ps-1">${category}</td>
-          <td class="pt-3 pb-3 ps-1">$${value.toFixed(2)}</td>
-          <td class="pt-3 pb-3 ps-1">${percentages[category]}%</td>
+          <td class="  pt-3 pb-3 ">${category}</td>
+          <td class="  pt-3 pb-3 ">$${value.toFixed(2)}</td>
+          <td class="  pt-3 pb-3 ">${percentages[category]}%</td>
         </tr>
       </tbody>`;
   }
@@ -222,21 +223,22 @@ function EventStatisticsUpcoming(data, percentages) {
 
 function EventStatisticsPast(data, percentages) {
   let eventStat = `
+  <br>
     <thead class="table-dark">
-      <tr><th class="pt-3 pb-3 ps-1 " colspan="3">Past Event</th></tr>
+      <tr><th class="pt-3 pb-3" colspan="3"><span>Past Event</span></th></tr>
       <tr>
-        <th class="pt-3 pb-3 ps-1">Categories</th>
-        <th class="pt-3 pb-3 ps-1">Revenues</th>
-        <th class="pt-3 pb-3 ps-1">Percentage of attendance</th>
+        <th class="pt-3 pb-3">Categories</th>
+        <th class="pt-3 pb-3 ">Revenues</th>
+        <th class="pt-3 pb-3 ">Percentage of attendance</th>
       </tr>
     </thead>`
   for (const [category, value] of Object.entries(data)) {
     eventStat += `
       <tbody>
         <tr>
-          <td class="pt-3 pb-3 ps-1">${category}</td>
-          <td class="pt-3 pb-3 ps-1">$${value.toFixed(2)}</td>
-          <td class="pt-3 pb-3 ps-1">${percentages[category]}%</td>
+          <td class=" pt-3 pb-3 ">${category}</td>
+          <td class=" pt-3 pb-3 ">$${value.toFixed(2)}</td>
+          <td class=" pt-3 pb-3 ">${percentages[category]}%</td>
         </tr>
       </tbody>`;
   }
