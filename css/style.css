@@ -340,6 +340,17 @@ span{
     width: 300px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
+
+.card:hover{
+    padding: 0px;
+    border: 0px;
+    background:linear-gradient(to right bottom, #212428, #16181c);
+    color: #fff;
+    margin-left: 15px;
+    margin-top: 40px;
+    width: 300px;
+    box-shadow: #f9004d 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
 .card-body{
     width: 100%;
 }
