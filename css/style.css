@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+:root{
+    --color-subtitle: #f9004d;
+    --search-input:#f9004d;
+    --check-form:#f9004d;
+}
+
+
 body{
     color: #fff;
     background-color: #212428;
@@ -9,18 +16,18 @@ a{
     text-decoration: none;
 }
 
-
+/*menu*/
 .navbar-toggler{
     border: none;
 }
 .navbar-toggler:focus{
     border: none;
 }
-:root{
-    --color-subtitle: #f9004d;
-    --search-input:#f9004d;
-    --check-form:#f9004d;
+
+.navbar-brand{
+    margin-left: 30px;
 }
+
 
 span{
     color: var(--color-subtitle);
@@ -184,6 +191,25 @@ span{
     justify-content: center;
     position: relative; /* Añadimos una posición diferente a static */
     bottom: 4.8cm;
+    transition: 0.5s;
+}
+
+
+.block-event-section:hover{
+    width: 550px;
+    height: 300px;   
+    background: linear-gradient(145deg, #1e2024, #23272b);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 30px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; /* Añadimos una posición diferente a static */
+    transition: 0.5s;
+    bottom:5cm;
 }
 
 
@@ -201,7 +227,27 @@ span{
     justify-content: center;
     position: relative; /* Añadimos una posición diferente a static */
     bottom: 4.8cm;
+    transition: 0.5s;
 }
+
+
+.block-event-section-two:hover{
+    width: 550px;
+    height: 300px;   
+    background: linear-gradient(145deg, #f9004d, #23272b);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 30px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; /* Añadimos una posición diferente a static */
+    transition: 0.5s;
+    bottom:5cm;
+}
+
 
 .block-event-section-two span{
     color: #fff;
@@ -361,6 +407,10 @@ span{
     flex-wrap: wrap;
 }
 
+.feacture-element{
+    margin-left: 20px;
+    margin-right: 20px;
+}
 
 
 /*button*/
@@ -388,24 +438,22 @@ span{
 .btn-two-aevento{
     font-size: 16px;
     font-weight: bold;
-    border: 0px;
+    border: 2px solid #0d0d0e00 ;
     border-bottom: 2px solid var(--color-subtitle);
     border-radius: 0px;
     padding: 10px 20px;
     transition: 0.5s;
     color: #fff;
-    background-color: #161616;
 }
 
-.btn-three-aevento{
+.btn-two-aevento:hover{
     font-size: 16px;
     font-weight: bold;
-    border: 0px;
+    border: 2px solid var(--color-subtitle);
     border-radius: 0px;
     padding: 10px 20px;
     transition: 0.5s;
-    color: #fff;
-    background: linear-gradient(to right bottom, #212428, #16181c)
+    color: var(--color-subtitle);
 }
 
 /*CONTAINER MAIN*/
@@ -545,9 +593,9 @@ textarea:focus {
 }
 
 
-/*analysis*/
+/*analytics */
 
-.slider-event-analysis h2{
+.slider-event-analytics  h2{
     font-size: 42px;
     text-transform: uppercase;
     font-weight: bold;
@@ -555,7 +603,7 @@ textarea:focus {
 }
 
 
-.slider-event-analysis{
+.slider-event-analytics {
     background-image: url(../Assets/slider-analisys.jpg);
     display: flex;
     flex-direction: column;
@@ -868,6 +916,17 @@ table{
 
 
 
+@media(max-width: 599px){
+    .feacture-element{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    
+    
+}
+
+
+
 @media(max-width: 555px){
     .group-events {
         display: none
@@ -892,6 +951,9 @@ table{
         margin-right: 0px;
         border-radius: 10px;
     }
+    .navbar-brand{
+        margin-left: 10px;
+    }
 }
 
 
@@ -901,3 +963,6 @@ table{
         flex-direction: column;
     }
 }
+
+
+
